@@ -1,12 +1,16 @@
 from typing import List
 
 class Task:
-    def __init__(self, title: str, description: str) -> None:
+    def __init__(self, title: str, description: str, completed: bool) -> None:
         self.title = title
         self.description = description
+        self.completed = completed
 
     def __str__(self) -> str:
         return f"Task is: {self.title}"
+    
+    def toggle_completed(self) -> None:
+        self.completed = False if self.completed else True
 
 class TaskList:
     def __init__(self, list_name: str, list_of_tasks: List[Task]) -> None:
