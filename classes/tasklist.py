@@ -26,3 +26,7 @@ class TaskList:
             print("Unable to remove task as does not exist in the task list")
             return
         print(f"Task {task_to_remove.title} was removed")
+    
+    def mark_all_as_done(self) -> None:
+        for task in self.list_of_tasks:
+            task.mark_as_completed()

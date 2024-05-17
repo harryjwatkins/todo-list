@@ -9,6 +9,9 @@ class Task:
     def __str__(self) -> str:
         return f"Task is: {self.title}"
     
+    def mark_as_completed(self) -> None:
+        self.completed = True
+    
     def toggle_completed(self) -> None:
         self.completed = False if self.completed else True
 
