@@ -13,6 +13,8 @@ class TaskList:
         return res
     
     def change_list_name(self, new_name: str) -> None:
+        if self.list_name == new_name:
+            raise Exception("Cannot change a list to the same name")
         self.list_name = new_name
 
     def add_task(self, task: Task) -> None:
@@ -29,4 +31,12 @@ class TaskList:
     
     def mark_all_as_done(self) -> None:
         for task in self.list_of_tasks:
+            if task.completed:
+                continue
             task.mark_as_completed()
+
+    def mark_all_as_todo(self) -> None:
+        for task in self.list_of_tasks:
+            if not task.completed:
+                continue
+            task.mark_as_not_completed()
