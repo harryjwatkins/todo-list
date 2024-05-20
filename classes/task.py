@@ -1,10 +1,10 @@
 from typing import List
 
 class Task:
-    def __init__(self, title: str, description: str, completed: bool) -> None:
+    def __init__(self, title: str, description: str) -> None:
         self.title = title
         self.description = description
-        self.completed = completed
+        self.completed = False
 
     def __str__(self) -> str:
         return f"Task is: {self.title}"

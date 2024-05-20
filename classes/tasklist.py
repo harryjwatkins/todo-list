@@ -2,9 +2,9 @@ from typing import List
 from classes.task import Task
 
 class TaskList:
-    def __init__(self, list_name: str, list_of_tasks: List[Task]) -> None:
+    def __init__(self, list_name: str) -> None:
         self.list_name = list_name
-        self.list_of_tasks = list_of_tasks
+        self.list_of_tasks = []
     
     def __str__(self) -> str:
         res = f"{self.list_name}:\n"
