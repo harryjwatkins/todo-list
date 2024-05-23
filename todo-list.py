@@ -1,6 +1,8 @@
 from classes.task import *
 from classes.tasklist import *
 
+user_task_lists = []
+
 def display_main_menu():
     print("What would you like to do:")
     print("1) Create task list")
@@ -18,8 +20,10 @@ def get_main_menu_choice():
 def view_task_lists():
     raise NotImplementedError()
 
-def create_task_list():
-    raise NotImplementedError()
+def create_task_list() -> None:
+    task_list_name = input("What would you like to call the list?")
+    created_task_list = TaskList(task_list_name)
+    user_task_lists.append(created_task_list)
 
 def select_main_menu_option(choice: str) -> None:
     if choice == '1':
@@ -30,7 +34,6 @@ def select_main_menu_option(choice: str) -> None:
         print("Thanks for using this program, goodbye")
         exit()
 
-user_task_lists = []
 while True:
     display_main_menu()
     user_choice = get_main_menu_choice()
