@@ -19,8 +19,18 @@ def get_main_menu_choice():
 
 def display_task_lists():
     print("These are your current task lists:")
-    for task_list in user_task_lists:
-        print(task_list.list_name)
+    for index, task_list in enumerate(user_task_lists):
+        print(index, ")", task_list.list_name)
+
+def get_user_task_list_choice():
+    n = len(user_task_lists)
+    while True:
+        user_choice = input("Please choose task list to view")
+        if user_choice in range(1, n):
+            return user_choice
+        print("Please enter valid value")
+    
+
 
 def create_task_list() -> None:
     task_list_name = input("What would you like to call the list?")
