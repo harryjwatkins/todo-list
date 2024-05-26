@@ -18,16 +18,24 @@ def get_main_menu_choice():
         return user_input
 
 def display_task_lists():
+    if len(user_task_lists) == 0:
+        print("There are no created task lists")
+        return
+
     print("These are your current task lists:")
     for index, task_list in enumerate(user_task_lists):
-        print(index, ")", task_list.list_name)
+        print(index + 1, ")", task_list.list_name)
+    
+    choice = get_user_task_list_choice()
+    print(user_task_lists[choice])
+
 
 def get_user_task_list_choice():
     n = len(user_task_lists)
     while True:
         user_choice = input("Please choose task list to view")
-        if user_choice in range(1, n):
-            return user_choice
+        if int(user_choice) in range(1, n):
+            return int(user_choice) - 1
         print("Please enter valid value")
     
 
