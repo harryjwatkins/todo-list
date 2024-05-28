@@ -30,7 +30,7 @@ def display_task_lists():
 def get_user_task_list_choice():
     n = len(user_task_lists)
     while True:
-        user_choice = input("Please choose task list to view")
+        user_choice = input("Please choose task list")
         if int(user_choice) in range(1, n):
             return int(user_choice) - 1
         print("Please enter valid value")
@@ -40,7 +40,11 @@ def create_task_list() -> None:
     created_task_list = TaskList(task_list_name)
     user_task_lists.append(created_task_list)
 
-def display_edit_task_list_menu() -> None:
+def display_edit_task_list_main_menu() -> None:
+    display_task_lists()
+    print("Which task list would you like to edit:")
+
+def display_edit_task_list_choices(task_list: TaskList) -> None:
     raise NotImplementedError()
 
 def select_main_menu_option(choice: str) -> None:
@@ -48,10 +52,12 @@ def select_main_menu_option(choice: str) -> None:
         create_task_list()
     elif choice == '2':
         display_task_lists()
-        choice = get_user_task_list_choice()
-        print(user_task_lists[choice])
+        user_choice = get_user_task_list_choice()
+        print(user_task_lists[user_choice])
     elif choice == '3':
-        display_edit_task_list_menu()
+        display_edit_task_list_main_menu()
+        user_choice = get_user_task_list_choice()
+        display_edit_task_list_choices(user_task_lists[user_choice+1])
     elif choice == '4':
         print("Thanks for using this program, goodbye")
         exit()
