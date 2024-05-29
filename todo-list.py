@@ -44,8 +44,12 @@ def display_edit_task_list_main_menu() -> None:
     display_task_lists()
     print("Which task list would you like to edit:")
 
-def display_edit_task_list_choices(task_list: TaskList) -> None:
-    raise NotImplementedError()
+def display_edit_task_list_choices() -> None:
+    print("What would you like to do:")
+    print("1) Add task")
+    print("2) Remove task")
+    print("3) Mark task as completed/todo")
+    print("4) Rename task")
 
 def select_main_menu_option(choice: str) -> None:
     if choice == '1':
@@ -57,7 +61,7 @@ def select_main_menu_option(choice: str) -> None:
     elif choice == '3':
         display_edit_task_list_main_menu()
         user_choice = get_user_task_list_choice()
-        display_edit_task_list_choices(user_task_lists[user_choice+1])
+        display_edit_task_list_choices()
     elif choice == '4':
         print("Thanks for using this program, goodbye")
         exit()
