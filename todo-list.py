@@ -45,11 +45,19 @@ def display_edit_task_list_main_menu() -> None:
     print("Which task list would you like to edit:")
 
 def display_edit_task_list_choices() -> None:
-    print("What would you like to do:")
     print("1) Add task")
     print("2) Remove task")
     print("3) Mark task as completed/todo")
     print("4) Rename task")
+    print("What would you like to do:")
+
+def get_edit_task_list_choice():
+    valid_choices = ["1", "2", "3", "4"]
+    while True:
+        user_choice = input()
+        if int(user_choice) in valid_choices:
+            return user_choice
+        print("Please enter valid value")
 
 def select_main_menu_option(choice: str) -> None:
     if choice == '1':
@@ -62,6 +70,7 @@ def select_main_menu_option(choice: str) -> None:
         display_edit_task_list_main_menu()
         user_choice = get_user_task_list_choice()
         display_edit_task_list_choices()
+        user_choice = get_edit_task_list_choice()
     elif choice == '4':
         print("Thanks for using this program, goodbye")
         exit()
