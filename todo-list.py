@@ -51,6 +51,18 @@ def display_edit_task_list_choices() -> None:
     print("4) Rename task")
     print("What would you like to do:")
 
+def add_task_to_task_list(task_list: TaskList):
+    raise NotImplementedError()
+
+def remove_task_from_task_list(task_list: TaskList):
+    raise NotImplementedError()
+
+def toggle_task_in_task_list(task_list: TaskList):
+    raise NotImplementedError()
+
+def rename_task_in_task_list(task_list: TaskList):
+    raise NotImplementedError()
+
 def get_edit_task_list_choice():
     valid_choices = ["1", "2", "3", "4"]
     while True:
