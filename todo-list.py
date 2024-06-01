@@ -52,7 +52,10 @@ def display_edit_task_list_choices() -> None:
     print("What would you like to do:")
 
 def add_task_to_task_list(task_list: TaskList):
-    raise NotImplementedError()
+    title = input("What task would you like to add?")
+    description = input("Please enter a description of the task")
+    new_task = Task(title, description)
+    task_list.add_task(new_task)
 
 def remove_task_from_task_list(task_list: TaskList):
     raise NotImplementedError()
