@@ -31,7 +31,7 @@ def get_user_task_list_choice():
     n = len(user_task_lists)
     while True:
         user_choice = input("Please choose task list")
-        if int(user_choice) in range(1, n):
+        if int(user_choice) in range(1, n+1):
             return int(user_choice) - 1
         print("Please enter valid value")
     
@@ -61,7 +61,8 @@ def remove_task_from_task_list(task_list: TaskList):
     raise NotImplementedError()
 
 def toggle_task_in_task_list(task_list: TaskList):
-    raise NotImplementedError()
+    user_choice = input("Which task would you like to toggle?")
+    print(task_list)
 
 def rename_task_in_task_list(task_list: TaskList):
     raise NotImplementedError()
@@ -70,8 +71,8 @@ def get_edit_task_list_choice():
     valid_choices = ["1", "2", "3", "4"]
     while True:
         user_choice = input()
-        if int(user_choice) in valid_choices:
-            return user_choice
+        if user_choice in valid_choices:
+            return int(user_choice)
         print("Please enter valid value")
 
 def select_main_menu_option(choice: str) -> None:
