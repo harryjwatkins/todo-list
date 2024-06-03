@@ -61,8 +61,12 @@ def remove_task_from_task_list(task_list: TaskList):
     raise NotImplementedError()
 
 def toggle_task_in_task_list(task_list: TaskList):
-    user_choice = input("Which task would you like to toggle?")
     print(task_list)
+    while True: 
+        user_choice = input("Which task would you like to toggle?")
+        if int(user_choice) in range(1, len(task_list)+1):
+            break        
+    print(task_list[int(user_choice)])
 
 def rename_task_in_task_list(task_list: TaskList):
     raise NotImplementedError()
@@ -72,8 +76,18 @@ def get_edit_task_list_choice():
     while True:
         user_choice = input()
         if user_choice in valid_choices:
-            return int(user_choice)
+            return user_choice
         print("Please enter valid value")
+
+def edit_controller(user_choice, task_list):
+    if user_choice == '1':
+        add_task_to_task_list(task_list)
+    elif user_choice == '2':
+        remove_task_from_task_list(task_list)
+    elif user_choice == '3':
+        toggle_task_in_task_list(task_list)
+    else:
+        rename_task_in_task_list(task_list)
 
 def select_main_menu_option(choice: str) -> None:
     if choice == '1':
@@ -85,8 +99,10 @@ def select_main_menu_option(choice: str) -> None:
     elif choice == '3':
         display_edit_task_list_main_menu()
         user_choice = get_user_task_list_choice()
+        task_list_to_edit = user_task_lists[user_choice]
         display_edit_task_list_choices()
         user_choice = get_edit_task_list_choice()
+        edit_controller(user_choice, task_list_to_edit)
     elif choice == '4':
         print("Thanks for using this program, goodbye")
         exit()
