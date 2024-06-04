@@ -58,15 +58,20 @@ def add_task_to_task_list(task_list: TaskList):
     task_list.add_task(new_task)
 
 def remove_task_from_task_list(task_list: TaskList):
-    raise NotImplementedError()
+    print(task_list)
+    while True: 
+        user_choice = input("Which task would you like to delete?")
+        if int(user_choice) in range(1, len(task_list.list_of_tasks)+1):
+            break        
+    del(task_list.list_of_tasks[int(user_choice)-1])
 
 def toggle_task_in_task_list(task_list: TaskList):
     print(task_list)
     while True: 
         user_choice = input("Which task would you like to toggle?")
-        if int(user_choice) in range(1, len(task_list)+1):
+        if int(user_choice) in range(1, len(task_list.list_of_tasks)+1):
             break        
-    print(task_list[int(user_choice)])
+    task_list.list_of_tasks[int(user_choice)-1].toggle_completed()
 
 def rename_task_in_task_list(task_list: TaskList):
     raise NotImplementedError()
