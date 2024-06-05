@@ -74,7 +74,13 @@ def toggle_task_in_task_list(task_list: TaskList):
     task_list.list_of_tasks[int(user_choice)-1].toggle_completed()
 
 def rename_task_in_task_list(task_list: TaskList):
-    raise NotImplementedError()
+    print(task_list)
+    while True: 
+        user_choice = input("Which task would you like rename?")
+        if int(user_choice) in range(1, len(task_list.list_of_tasks)+1):
+            break
+    rename = input("What would you like to rename it to?")        
+    task_list.list_of_tasks[int(user_choice)-1].change_title(rename)
 
 def get_edit_task_list_choice():
     valid_choices = ["1", "2", "3", "4"]
