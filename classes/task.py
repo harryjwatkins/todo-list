@@ -7,7 +7,7 @@ class Task:
         self.completed = False
 
     def __str__(self) -> str:
-        return f"Task is: {self.title}"
+        return f"{self.title}"
     
     def mark_as_not_completed(self) -> None:
         self.completed = False

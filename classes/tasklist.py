@@ -8,8 +8,8 @@ class TaskList:
     
     def __str__(self) -> str:
         res = f"{self.list_name}:\n"
-        for task in self.list_of_tasks:
-            res += str(task) + "\n"
+        for key, task in enumerate(self.list_of_tasks):
+            res += str(key+1) + ")" + str(task) + "\n"
         return res
     
     def change_list_name(self, new_name: str) -> None:
