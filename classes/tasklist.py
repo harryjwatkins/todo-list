@@ -13,8 +13,6 @@ class TaskList:
         return res
     
     def change_list_name(self, new_name: str) -> None:
-        if self.list_name == new_name:
-            raise Exception("Cannot change a list to the same name")
         self.list_name = new_name
 
     def add_task(self, task: Task) -> None:
