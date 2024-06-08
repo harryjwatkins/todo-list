@@ -62,7 +62,8 @@ def remove_task_from_task_list(task_list: TaskList):
     while True: 
         user_choice = input("Which task would you like to delete?")
         if int(user_choice) in range(1, len(task_list.list_of_tasks)+1):
-            break        
+            break     
+        print("That was an invalid choice, please try again")   
     del(task_list.list_of_tasks[int(user_choice)-1])
 
 def toggle_task_in_task_list(task_list: TaskList):
@@ -70,7 +71,8 @@ def toggle_task_in_task_list(task_list: TaskList):
     while True: 
         user_choice = input("Which task would you like to toggle?")
         if int(user_choice) in range(1, len(task_list.list_of_tasks)+1):
-            break        
+            break
+        print("That was an invalid choice, please try again")        
     task_list.list_of_tasks[int(user_choice)-1].toggle_completed()
 
 def rename_task_in_task_list(task_list: TaskList):
@@ -79,6 +81,7 @@ def rename_task_in_task_list(task_list: TaskList):
         user_choice = input("Which task would you like rename?")
         if int(user_choice) in range(1, len(task_list.list_of_tasks)+1):
             break
+        print("That was an invalid choice, please try again")
     rename = input("What would you like to rename it to?")        
     task_list.list_of_tasks[int(user_choice)-1].change_title(rename)
 
