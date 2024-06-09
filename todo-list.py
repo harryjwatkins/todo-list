@@ -102,21 +102,27 @@ def edit_controller(user_choice, task_list):
         toggle_task_in_task_list(task_list)
     else:
         rename_task_in_task_list(task_list)
-
-def select_main_menu_option(choice: str) -> None:
-    if choice == '1':
-        create_task_list()
-    elif choice == '2':
+    
+def remove_task_list_main():
         display_task_lists()
         user_choice = get_user_task_list_choice()
         print(user_task_lists[user_choice])
-    elif choice == '3':
+
+def mark_task_list_main():
         display_edit_task_list_main_menu()
         user_choice = get_user_task_list_choice()
         task_list_to_edit = user_task_lists[user_choice]
         display_edit_task_list_choices()
         user_choice = get_edit_task_list_choice()
         edit_controller(user_choice, task_list_to_edit)
+
+def select_main_menu_option(choice: str) -> None:
+    if choice == '1':
+        create_task_list()
+    elif choice == '2':
+        remove_task_list_main()
+    elif choice == '3':
+        mark_task_list_main()
     elif choice == '4':
         print("Thanks for using this program, goodbye")
         exit()
