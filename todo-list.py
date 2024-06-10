@@ -14,7 +14,7 @@ def get_main_menu_choice():
     while True:
         user_input = input("Please enter your choice:")
         if user_input not in ["1", "2", "3", "4"]:
-            print("Invalid input")
+            print("Invalid input, please try again")
             continue
         return user_input
 
@@ -39,10 +39,6 @@ def create_task_list() -> None:
     task_list_name = input("What would you like to call the list?")
     created_task_list = TaskList(task_list_name)
     user_task_lists.append(created_task_list)
-
-def display_edit_task_list_main_menu() -> None:
-    display_task_lists()
-    print("Which task list would you like to edit:")
 
 def display_edit_task_list_choices() -> None:
     print("1) Add task")
@@ -109,7 +105,8 @@ def remove_task_list_main():
         print(user_task_lists[user_choice])
 
 def mark_task_list_main():
-        display_edit_task_list_main_menu()
+        display_task_lists()
+        print("Which task list would you like to edit:")
         user_choice = get_user_task_list_choice()
         task_list_to_edit = user_task_lists[user_choice]
         display_edit_task_list_choices()
